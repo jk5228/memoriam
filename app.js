@@ -6,6 +6,27 @@ $(document).ready(function() {
 		return types[Math.floor(Math.random()*types.length)];
 	};
 
+	// Image API
+	var images = {};
+	images.available = [1,2,3,4,5,6,7,8,9,10,11];
+
+	// Return the path to an unused image 
+	images.use = function() {
+		var ind = Math.floor(Math.random() * images.available.length);
+		var img = images.available[ind];
+		var imgPath;
+
+		if (img === 1) {
+			imgPath = "img/L" + img + ".jpg";
+		}
+		else {
+			imgPath = "img/L" + img + ".png";
+		}
+
+		images.available.splice(ind, 1);
+		return imgPath;
+	};
+
 	// Grid selection
 	var grid = $("#grid-container");
 
@@ -21,6 +42,7 @@ $(document).ready(function() {
 	modal.text = $('#modal-text');
 	modal.name = $('#modal-name');
 	modal.close = $('#modal-close');
+	modal.image = $('#modal-image');
 	modal.hidden = true;
 
 	// Toggle modal
@@ -28,8 +50,21 @@ $(document).ready(function() {
 		if (modal.hidden && cell) {
 
 			// Populate modal with content
-			modal.text.text(cell.userData.text);
-			modal.name.text(cell.userData.firstName + " " + cell.userData.lastName);
+			if (cell.userData.text) {				// Post
+				modal.text.text(cell.userData.text);
+				modal.name.text(cell.userData.firstName + " " + cell.userData.lastName);
+				modal.image.css("display", "none");
+				modal.text.css("display", "block");
+				modal.name.css("display", "block");
+				modal.content.css("padding", "10%");
+			}
+			else {									// Image
+				modal.image.attr("src", cell.userData.image);
+				modal.text.css("display", "none");
+				modal.name.css("display", "none");
+				modal.content.css("padding", "0%");
+				modal.image.css("display", "block");
+			}
 
 			// Display modal
 			modal.hidden = false;
@@ -37,7 +72,7 @@ $(document).ready(function() {
 				visibility: "visible",
 				backgroundColor: "rgba(0,0,0,0.8)"
 			});
-			modal.content.css("top", "10%");
+			modal.content.css("top", "0%");
 		}
 		else {
 			modal.hidden = true;
@@ -53,6 +88,8 @@ $(document).ready(function() {
 	var namebox = $("#namebox");
 	namebox.button = $("#namebox-toggle");
 	namebox.auth = $("#auth-button");
+	namebox.flash = $("#namebox-flash");
+	namebox.close = $("#namebox-close");
 	namebox.hidden = true;
 
 	// Toggle namebox display
@@ -73,14 +110,23 @@ $(document).ready(function() {
 		namebox.toggle();
 	});
 
+	// Close namebox on close button click
+	namebox.close.mouseup(function(e) {
+		namebox.toggle();
+	});
+
 	// Add signature to list
 	namebox.add = function(name) {
 		namebox.append('<h3 class="name">' + name + '</h3>');
 	};
 
 	// Flash message on signature success
-	namebox.flash = function(message) {
-		// Flash message
+	namebox.message = function(message) {
+		namebox.flash.text(message);
+		namebox.flash.css("opacity", 1);
+		window.setTimeout(function() {
+			namebox.flash.css("opacity", 0);
+		}, 2000);
 	};
 
 	// Add a cell of the specified size to the grid
@@ -97,10 +143,14 @@ $(document).ready(function() {
 		cell.append(contentDiv);
 
 		if (image) {
-			cell.css("background-image", "url('img1.jpg')");
+			cell.userData = {};						// Clean out old content
+			var imgPath = images.use();
+			cell.userData.image = imgPath;
+			cell.css("background-image", "url('" + imgPath + "')");
 		}
 
 		if (content) {
+			cell.userData = {};						// Clean out old content
 			contentDiv.text(content.memorial);
 			cell.userData.firstName = content.firstName;
 			cell.userData.lastName = content.lastName;
@@ -149,6 +199,9 @@ $(document).ready(function() {
 		if (!modal.hidden && e.keyCode == 27) {
 			modal.toggle();
 		}
+		else if (!namebox.hidden && e.keyCode == 27) {
+			namebox.toggle();
+		}
 	});
 
 	// Block all mouse events through modal background
@@ -166,7 +219,7 @@ $(document).ready(function() {
 
 	$.getJSON('data.json', function(data) {
 		for (var i = 0; i < data.memorials.length; i++) {
-			if (Math.random() > 0.6) {
+			if (Math.random() > 0.8 && images.available.length) {
 				grid.add(types.sample(), true);
 			}
 			grid.add(types.sample(), false, data.memorials[i]);
@@ -209,10 +262,10 @@ $(document).ready(function() {
 	// Create a callback to handle the result of the authentication
 	function authHandler(error, authData) {
 	  if (error) {
-	  	namebox.flash("Unfortunately, we failed to authenticate your Facebook account. Please try again.");
+	  	namebox.message("We ran into an issue while authenticating your Facebook account. Give it another go!");
 	    //console.log("Login Failed!", error);
 	  } else {
-	  	namebox.flash("Thank you for signing Luchang's online memorial. Our thoughts our with you in this difficult time.");
+	  	namebox.message("Thank you for signing Luchang's online memorial. Our thoughts our with you in this difficult time.");
 	    //console.log("Authenticated successfully with payload:", authData);
 	  }
 	}
@@ -236,5 +289,34 @@ $(document).ready(function() {
 	namebox.auth.mouseup(function(e) {
 		ref.authWithOAuthPopup("facebook", authHandler);
 	});
+
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
+	namebox.add("Test name");
 
 });
