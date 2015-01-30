@@ -53,6 +53,6 @@ $(document).ready(function() {
 	grid.add('2x1');
 	grid.add('2x2');
 
-	TweenMax.to($("#namebox"), 2, {top: 0});
+	// TweenMax.to($("#namebox"), 2, {top: 0});
 
 });
