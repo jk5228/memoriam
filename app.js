@@ -49,6 +49,7 @@ $(document).ready(function() {
 	modal.toggle = function(cell) {
 		if (modal.hidden && cell) {
 			$("body").css("overflow", "hidden");
+			modal.css("overflow", "scroll");
 
 			// Populate modal with content
 			if (cell.userData.text) {				// Post
@@ -77,6 +78,7 @@ $(document).ready(function() {
 		}
 		else {
 			$("body").css("overflow", "scroll");
+			modal.css("overflow", "hidden");
 			modal.hidden = true;
 			modal.content.css("top", "100%");
 			modal.css("background-color", "rgba(0,0,0,0)");
@@ -98,12 +100,14 @@ $(document).ready(function() {
 	namebox.toggle = function() {
 		if (namebox.hidden) {
 			$("body").css("overflow", "hidden");
+			modal.css("overflow", "scroll");
 			namebox.hidden = false;
 			namebox.css("top", "0%");
 
 		}
 		else {
 			$("body").css("overflow", "scroll");
+			modal.css("overflow", "hidden");
 			namebox.hidden = true;
 			namebox.css("top", "100%");
 		}
