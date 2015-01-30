@@ -4,8 +4,9 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300|Raleway:400,100' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="animate.css">
-		<script src="wow.min.js"></script>
 		<script src="jquery.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
+		<script src="wow.min.js"></script>
 		<script>
 			var wow = new WOW(
 			  {
@@ -28,8 +29,18 @@
 			<h1 id="title">Luchang</h1>
 		</div>
 		<div id="grid-container"></div>
-		<div id="namebox"></div>
+		<div id="namebox">
+			<h1 id="namebox-title">We love you</h1>
+			<div id="auth-button">Leave your name</div>
+		</div>
 		<div id="namebox-toggle"></div>
+		<div id="modal">
+			<div id="modal-content">
+				<div id="modal-close"></div>
+				<div id="modal-text"></div>
+				<div id="modal-name"></div>
+			</div>
+		</div>
 		<script src="app.js"></script>
 	</body>
 </html>

@@ -3,7 +3,7 @@ body {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	font-family: "Menlo";
+	font-family: "Open Sans";
 	background-color: #effefe;
 	background-image: url('bg.jpg');
 	background-size: cover;
@@ -41,73 +41,176 @@ body {
 	overflow-x: hidden;
 }
 
-.cell-1-1 {
+.cell {
+	position: relative;
 	display: inline-block;
 	float: left;
-	width: 9vw;
-	height: 9vw;
-	background-color: white;
-	padding: 5vw;
 	margin: 0.5vw;
+	cursor: pointer;
+	overflow: hidden;
 	background-size: cover;
+	background-color: white;
 	background-position: center;
-	/*background-image: url('img4.jpg');*/
 }
 
-.cell-2-2 {
-	display: inline-block;
-	float: left;
-	width: 29vw;
-	height: 29vw;
-	background-color: white;
-	padding: 5vw;
-	margin: 0.5vw;
-	background-size: cover;
-	background-position: center;
-	/*background-image: url('img1.jpg');*/
+.cell-content {
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	width: 80%;
+	height: 80%;
+	padding: 10%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.veil {
+	z-index: 100;
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	-o-box-shadow: inset 0 0 20px 10px white;
+	-moz-box-shadow: inset 0 0 20px 10px white;
+	-webkit-box-shadow: inset 0 0 20px 10px white;
+	box-shadow: inset 0 0 20px 10px white;
+}
+
+.cell-1-1 {
+	width: 19vw;
+	height: 19vw;
 }
 
 .cell-2-1 {
-	display: inline-block;
-	float: left;
-	width: 29vw;
-	height: 9vw;
-	background-color: white;
-	padding: 5vw;
-	margin: 0.5vw;
-	background-size: cover;
-	background-position: center;
-	/*background-image: url('img2.jpg');*/
+	width: 39vw;
+	height: 19vw;
+}
+
+.cell-2-2 {
+	width: 39vw;
+	height: 39vw;
 }
 
 #namebox {
+	z-index: 150;
 	position: fixed;
 	top: 100%;
 	left: 0%;
 	width: 90%;
 	height: 90%;
 	padding: 5%;
-	background-color: rgba(255,255,255,0.95);
+	text-align: center;
 	overflow-x: hidden;
+	background-color: rgba(255,255,255,0.95);
 	-webkit-transition: top ease-in-out 0.6s;
 	-moz-transition: top ease-in-out 0.6s;
 	-o-transition: top ease-in-out 0.6s;
 	transition: top ease-in-out 0.6s;
 }
 
+#namebox-title {
+	display: inline-block;
+	width: 100%;
+	font-family: 'Raleway';
+	font-weight: 100;
+	font-size: 4rem;
+}
+
 #namebox-toggle {
+	z-index: 151;
 	position: fixed;
 	bottom: 0px;
 	left: 10px;
 	width: 30px;
-	height: 3vw;
-	background-color: blue;
+	height: 30px;
+	background-color: #63C0F2;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+}
+
+#auth-button {
+	position: relative;
+	border: none;
+	padding: 1%;
+	width: 20%;
+	margin: 0 auto;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	cursor: pointer;
+	background-color: #eee;
+	-webkit-transition: all ease-in-out 0.2s;
+	-moz-transition: all ease-in-out 0.2s;
+	-o-transition: all ease-in-out 0.2s;
+	transition: all ease-in-out 0.2s;
+}
+
+#auth-button:hover {
+	background-color: #63C0F2;
+	color: white;
 }
 
 .name {
 	display: inline-block;
 	float: left;
-	width: 30%;
+	width: 33.33%;
 	height: 4rem;
 	font-size: 1rem;
+}
+
+#modal {
+	z-index: 200;
+	position: fixed;
+	visibility: hidden;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition: background-color ease-in-out 0.4s;
+	-moz-transition: background-color ease-in-out 0.4s;
+	-o-transition: background-color ease-in-out 0.4s;
+	transition: background-color ease-in-out 0.4s;
+}
+
+#modal-content {
+	position: fixed;
+	top: 100%;
+	left: 0%;
+	width: 70%;
+	height: 100%;
+	padding: 10% 10% 0% 10%;
+	margin: 5% 5% 0% 5%;
+	cursor: default;
+	background-color: white;
+	-webkit-transition: top ease-in-out 0.4s;
+	-moz-transition: top ease-in-out 0.4s;
+	-o-transition: top ease-in-out 0.4s;
+	transition: top ease-in-out 0.4s;
+}
+
+#modal-text {
+	text-align: left;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+#modal-name {
+	width: 100%;
+}
+
+#modal-close {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	margin: 1rem;
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	background-image: url('close.png');
 }
