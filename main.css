@@ -134,10 +134,10 @@ body {
 }
 
 #auth-button {
+	display: inline-block;
 	position: relative;
 	border: none;
-	padding: 1%;
-	width: 20%;
+	padding: 1rem 2rem 1rem 2rem;
 	margin: 0 auto;
 	margin-top: 3rem;
 	margin-bottom: 3rem;
@@ -149,31 +149,36 @@ body {
 	transition: all ease-in-out 0.2s;
 }
 
-#namebox-flash {
-	position: fixed;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	opacity: 0;
-	pointer-events: none;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	background-color: #eee;
-	-webkit-transition: opacity ease-in-out 0.2s;
-	-moz-transition: opacity ease-in-out 0.2s;
-	-o-transition: opacity ease-in-out 0.2s;
-	transition: opacity ease-in-out 0.2s;
-}
-
 #auth-button:hover {
 	background-color: #63C0F2;
 	color: white;
 }
 
+#namebox-header {
+	width: 100%;
+}
+
+#namebox-flash {
+	z-index: 200;
+	position: fixed;
+	top: 0%;
+	left: 10%;
+	width: 80%;
+	opacity: 0;
+	pointer-events: none;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: #eee;
+	-webkit-transition: opacity ease-out 0.5s;
+	-moz-transition: opacity ease-out 0.5s;
+	-o-transition: opacity ease-out 0.5s;
+	transition: opacity ease-out 0.5s;
+}
+
 .name {
 	display: inline-block;
 	float: left;
-	width: 33.33%;
+	width: 25%;
 	height: 4rem;
 	font-size: 1rem;
 }

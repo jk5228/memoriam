@@ -48,6 +48,7 @@ $(document).ready(function() {
 	// Toggle modal
 	modal.toggle = function(cell) {
 		if (modal.hidden && cell) {
+			$("body").css("overflow", "hidden");
 
 			// Populate modal with content
 			if (cell.userData.text) {				// Post
@@ -75,6 +76,7 @@ $(document).ready(function() {
 			modal.content.css("top", "0%");
 		}
 		else {
+			$("body").css("overflow", "scroll");
 			modal.hidden = true;
 			modal.content.css("top", "100%");
 			modal.css("background-color", "rgba(0,0,0,0)");
@@ -95,11 +97,13 @@ $(document).ready(function() {
 	// Toggle namebox display
 	namebox.toggle = function() {
 		if (namebox.hidden) {
+			$("body").css("overflow", "hidden");
 			namebox.hidden = false;
 			namebox.css("top", "0%");
 
 		}
 		else {
+			$("body").css("overflow", "scroll");
 			namebox.hidden = true;
 			namebox.css("top", "100%");
 		}
@@ -126,7 +130,7 @@ $(document).ready(function() {
 		namebox.flash.css("opacity", 1);
 		window.setTimeout(function() {
 			namebox.flash.css("opacity", 0);
-		}, 2000);
+		}, 4000);
 	};
 
 	// Add a cell of the specified size to the grid
@@ -265,7 +269,7 @@ $(document).ready(function() {
 	  	namebox.message("We ran into an issue while authenticating your Facebook account. Give it another go!");
 	    //console.log("Login Failed!", error);
 	  } else {
-	  	namebox.message("Thank you for signing Luchang's online memorial. Our thoughts our with you in this difficult time.");
+	  	namebox.message("Thank you for honoring the memory of Luchang. Our thoughts our with you.");
 	    //console.log("Authenticated successfully with payload:", authData);
 	  }
 	}
@@ -290,33 +294,40 @@ $(document).ready(function() {
 		ref.authWithOAuthPopup("facebook", authHandler);
 	});
 
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
-	namebox.add("Test name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
+	namebox.add("Test Name");
 
 });
