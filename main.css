@@ -1,0 +1,273 @@
+body {
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-family: "Open Sans";
+	background-color: #effefe;
+	background-image: url('bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+#splash {
+	position: relative;
+	width: 100%;
+	padding-top: 9rem;
+	padding-bottom: 1rem;
+	background-image: url('img4.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: auto;
+}
+
+#photo {
+	display: inline-block;
+	float: left;
+	width: 10vw;
+	height: 10vw;
+	border-radius: 5vw;
+	margin: 1rem;
+	margin-left: 10vw;
+	background-size: 200%;
+	background-position: 60% 40%;
+	background-color: #63C0F2;
+	background-image: url('img/L2.png');
+}
+
+#title {
+	display: inline-block;
+	float: left;
+	height: 10vw;
+	margin: 1rem;
+	line-height: 10vw;
+	font-family: 'Raleway';
+	font-size: 10vw;
+	font-weight: 100;
+	color: white;
+}
+
+#grid-container {
+	position: relative;
+	display: block;
+	width: 80%;
+	padding: 10% 5% 10% 5%;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+
+.cell {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin: 0.5vw;
+	cursor: pointer;
+	overflow: hidden;
+	background-size: cover;
+	background-color: white;
+	background-position: 40%;
+}
+
+.cell-content {
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	width: 80%;
+	height: 80%;
+	padding: 10%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.veil {
+	z-index: 100;
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	-o-box-shadow: inset 0 -5px 30px 20px white;
+	-moz-box-shadow: inset 0 -5px 30px 20px white;
+	-webkit-box-shadow: inset 0 -5px 30px 20px white;
+	box-shadow: inset 0 -5px 30px 20px white;
+}
+
+.cell-1-1 {
+	width: 19vw;
+	height: 19vw;
+}
+
+.cell-2-1 {
+	width: 39vw;
+	height: 19vw;
+}
+
+.cell-2-2 {
+	width: 39vw;
+	height: 39vw;
+}
+
+#namebox {
+	z-index: 150;
+	position: fixed;
+	top: 100%;
+	left: 0%;
+	width: 90%;
+	height: 90%;
+	padding: 5%;
+	text-align: center;
+	overflow-x: hidden;
+	background-color: rgba(255,255,255,0.95);
+	-webkit-transition: top ease-in-out 0.6s;
+	-moz-transition: top ease-in-out 0.6s;
+	-o-transition: top ease-in-out 0.6s;
+	transition: top ease-in-out 0.6s;
+}
+
+#namebox-title {
+	display: inline-block;
+	width: 100%;
+	font-family: 'Raleway';
+	font-weight: 100;
+	font-size: 4rem;
+}
+
+#namebox-toggle {
+	z-index: 149;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	margin: 1rem;
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	background-color: rgba(0,0,0,0);
+	background-image: url('book.png');
+}
+
+#auth-button {
+	display: inline-block;
+	position: relative;
+	border: none;
+	padding: 1rem 2rem 1rem 2rem;
+	margin: 0 auto;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	cursor: pointer;
+	background-color: #eee;
+	-webkit-transition: all ease-in-out 0.2s;
+	-moz-transition: all ease-in-out 0.2s;
+	-o-transition: all ease-in-out 0.2s;
+	transition: all ease-in-out 0.2s;
+}
+
+#auth-button:hover {
+	background-color: #63C0F2;
+	color: white;
+}
+
+#namebox-header {
+	width: 100%;
+}
+
+#namebox-flash {
+	z-index: 200;
+	position: fixed;
+	top: 0%;
+	left: 10%;
+	width: 80%;
+	opacity: 0;
+	pointer-events: none;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: #eee;
+	-webkit-transition: opacity ease-out 0.5s;
+	-moz-transition: opacity ease-out 0.5s;
+	-o-transition: opacity ease-out 0.5s;
+	transition: opacity ease-out 0.5s;
+}
+
+.name {
+	display: inline-block;
+	float: left;
+	width: 25%;
+	height: 4rem;
+	font-size: 1rem;
+}
+
+#modal {
+	z-index: 200;
+	position: fixed;
+	visibility: hidden;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	overflow-y: scroll;
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition: background-color ease-in-out 0.4s;
+	-moz-transition: background-color ease-in-out 0.4s;
+	-o-transition: background-color ease-in-out 0.4s;
+	transition: background-color ease-in-out 0.4s;
+}
+
+#modal-content {
+	position: relative;
+	top: 100%;
+	width: 70%;
+	padding: 10%;
+	margin: 5%;
+	right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+	cursor: default;
+	overflow-y: scroll;
+	background-color: white;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-transition: top ease-in-out 0.4s;
+	-moz-transition: top ease-in-out 0.4s;
+	-o-transition: top ease-in-out 0.4s;
+	transition: top ease-in-out 0.4s;
+}
+
+#modal-text {
+	text-align: left;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+#modal-name {
+	width: 100%;
+}
+
+#modal-image {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.close {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	margin: 1rem;
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	background-image: url('close.png');
+}
+
+#namebox-close {
+	margin: 1.5rem;
+}
