@@ -223,7 +223,7 @@ $(document).ready(function() {
 
 	$.getJSON('data.json', function(data) {
 		for (var i = 0; i < data.memorials.length; i++) {
-			if (Math.random() > 0.8 && images.available.length) {
+			if (Math.random() > 0.7 && images.available.length) {
 				grid.add(types.sample(), true);
 			}
 			grid.add(types.sample(), false, data.memorials[i]);
@@ -269,7 +269,7 @@ $(document).ready(function() {
 	  	namebox.message("We ran into an issue while authenticating your Facebook account. Give it another go!");
 	    //console.log("Login Failed!", error);
 	  } else {
-	  	namebox.message("Thank you for honoring the memory of Luchang. Our thoughts our with you.");
+	  	namebox.message("Thank you for honoring the memory of Luchang. Our thoughts are with you.");
 	    //console.log("Authenticated successfully with payload:", authData);
 	  }
 	}
@@ -293,41 +293,5 @@ $(document).ready(function() {
 	namebox.auth.mouseup(function(e) {
 		ref.authWithOAuthPopup("facebook", authHandler);
 	});
-
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
-	namebox.add("Test Name");
 
 });
