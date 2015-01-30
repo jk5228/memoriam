@@ -82,12 +82,32 @@ body {
 
 #namebox {
 	position: fixed;
-	display: block;
 	top: 100%;
 	left: 0%;
 	width: 90%;
 	height: 90%;
 	padding: 5%;
-	background-color: black;
+	background-color: rgba(255,255,255,0.95);
 	overflow-x: hidden;
+	-webkit-transition: top ease-in-out 0.6s;
+	-moz-transition: top ease-in-out 0.6s;
+	-o-transition: top ease-in-out 0.6s;
+	transition: top ease-in-out 0.6s;
+}
+
+#namebox-toggle {
+	position: fixed;
+	bottom: 0px;
+	left: 10px;
+	width: 30px;
+	height: 3vw;
+	background-color: blue;
+}
+
+.name {
+	display: inline-block;
+	float: left;
+	width: 30%;
+	height: 4rem;
+	font-size: 1rem;
 }

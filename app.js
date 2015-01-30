@@ -8,12 +8,29 @@ $(document).ready(function() {
 
 	// Name box selection
 	var namebox = $("#namebox");
+	namebox.button = $("#namebox-toggle");
+	namebox.hidden = true;
+
+	// Toggle namebox display
+	namebox.toggle = function() {
+		if (namebox.hidden) {
+			namebox.hidden = false;
+			$("#namebox").css("top", "0%");
+		}
+		else {
+			namebox.hidden = true;
+			$("#namebox").css("top", "100%");
+		}
+	}
+
+	// Watch for toggle button press event
+	namebox.button.on("mouseup", function(e) {
+		namebox.toggle();
+	});
 
 	// Add signature to list
 	namebox.add = function(name) {
-		for (var i = 0; i < data.length; i++) {
-			// ASDFA
-		}
+		namebox.append('<h3 class="name">' + name + '</h3>');
 	};
 
 	// Flash message on signature success
@@ -53,6 +70,6 @@ $(document).ready(function() {
 	grid.add('2x1');
 	grid.add('2x2');
 
-	// TweenMax.to($("#namebox"), 2, {top: 0});
+	namebox.add("Jason Kim");
 
 });
