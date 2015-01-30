@@ -47,12 +47,15 @@ $(document).ready(function() {
 
 	// Toggle modal
 	modal.toggle = function(cell) {
-		if (modal.hidden && cell) {
+
+		if (modal.hidden && cell) {				// Show modal
+
 			$("body").css("overflow", "hidden");
 			modal.css("overflow", "scroll");
 
 			// Populate modal with content
-			if (cell.userData.text) {				// Post
+			if (cell.userData.text) {				// Post data
+
 				modal.text.text(cell.userData.text);
 				modal.name.text(cell.userData.firstName + " " + cell.userData.lastName);
 				modal.image.css("display", "none");
@@ -60,7 +63,8 @@ $(document).ready(function() {
 				modal.name.css("display", "block");
 				modal.content.css("padding", "10%");
 			}
-			else {									// Image
+			else {									// Image data
+
 				modal.image.attr("src", cell.userData.image);
 				modal.text.css("display", "none");
 				modal.name.css("display", "none");
@@ -76,9 +80,21 @@ $(document).ready(function() {
 			});
 			modal.content.css("top", "0%");
 		}
-		else {
+		else {									// Hide modal
+
 			$("body").css("overflow", "scroll");
 			modal.css("overflow", "hidden");
+
+			// Scroll modal to top
+			var scrollPos = modal.scrollTop();
+			function scroll(pos) {
+				if (pos <= 0)
+					return;
+				modal.scrollTop(pos-5);
+				window.setTimeout(function() { scroll(pos-5); }, 1);
+			};
+			scroll(scrollPos);
+
 			modal.hidden = true;
 			modal.content.css("top", "100%");
 			modal.css("background-color", "rgba(0,0,0,0)");
